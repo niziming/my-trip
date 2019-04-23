@@ -10,13 +10,12 @@
         <relativePath>../my-trip-dependencies/pom.xml</relativePath>
     </parent>
 
-    <artifactId>my-trip-web-admin</artifactId>
+    <artifactId>my-trip-web-ui</artifactId>
     <!--要被部署所以用war-->
     <packaging>war</packaging>
 
-
-    <name>my-trip-web-admin</name>
-    <description>admin</description>
+    <name>my-trip-web-ui</name>
+    <description>ui</description>
 
     <dependencies>
         <dependency>
@@ -24,11 +23,7 @@
             <artifactId>my-trip-commons</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
-        <dependency>
-            <groupId>cn.ziming</groupId>
-            <artifactId>my-trip-domain</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
+
     </dependencies>
 
 </project>

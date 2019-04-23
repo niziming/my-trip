@@ -17,5 +17,7 @@
         <module>my-trip-commons</module>
         <module>my-trip-domain</module>
         <module>my-trip-web-admin</module>
+        <module>my-trip-web-ui</module>
+        <module>my-trip-web-api</module>
     </modules>
 </project>
