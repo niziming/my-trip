@@ -41,19 +41,19 @@ public class UserServiceImplTest {
     @Test
     public void testGetUser() {
         User user = userService.getUser(9);
-        System.out.println(user.toString());
+        System.out.println(user);
     }
 
     @Test
-    public void testUpdatInfo() {
+    public void testUpdataUserInfo() {
         User user = userService.getUser(9);
-        System.out.println(user.toString());
+        System.out.println(user);
         user.setUname("testUpdatInfo");
         user.setEmail("test@text.com");
         user.setPwd("test");
-        System.out.println(user.toString());
+        System.out.println(user);
         userService.updataUserInfo(user);
-        System.out.println(user.toString());
+        System.out.println(user);
     }
 
     @Test
@@ -61,7 +61,16 @@ public class UserServiceImplTest {
         String uname = "username";
         List<User> users = userService.selectUsersByName(uname);
         for (User user : users){
-            System.out.println(user.toString());
+            System.out.println(user);
         }
+    }
+
+    @Test
+    public void getUserByEmailAndPwd() {
+        String email = "ziming@admin.com";
+        String pwd = "admin";
+        User user = userService.login(email, pwd);
+        System.out.println(user.getUid());
+
     }
 }

@@ -9,15 +9,18 @@
 </head>
 <body>
 <%--<%--%>
-    <%--// 获取session--%>
-    <%--User user = (User) session.getAttribute("user");--%>
-    <%--String timeStamp = session.getAttribute("timeStamp").toString();--%>
+<%--// 获取session--%>
+<%--User user = (User) session.getAttribute("user");--%>
+<%--String timeStamp = session.getAttribute("timeStamp").toString();--%>
 <%--%>--%>
 登陆成功 <br>
 ${sessionScope.timestamp}
 ${sessionScope.user.uid}
 ${sessionScope.user.uname}
 ${sessionScope.user.email}
+<form action="/loginout" method="post">
+    <button type="submit" class="btn btn-primary btn-block btn-flat">注销</button>
+</form>
 <%--登陆成功 登录时间:<%=timeStamp %> <br>--%>
 <%--您的用户名为:<%=user.getUname() %> <br>--%>
 <%--您的登陆ID为:<%=user.getEmail() %> <br>--%>

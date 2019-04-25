@@ -45,4 +45,12 @@ public interface UserDao {
      * 模糊查询
      */
 	List<User> selectUsersByName(String uname);
+
+    /**
+     * 根据邮箱和密码获取用户对象
+     * 可用于登陆
+     * @param user
+     * @return User
+     */
+	User getUserByEmailAndPwd(User user);
 }

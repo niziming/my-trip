@@ -6,7 +6,6 @@ import cn.ziming.my.trip.web.admin.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.SQLException;
 import java.util.List;
 
 @Service
@@ -14,11 +13,6 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserDao userDao;
-
-	@Override
-	public User login(String email, String pwd) throws SQLException {
-		return null;
-	}
 
 	public List<User> selectAll() {
 		return userDao.selectAll();
@@ -52,5 +46,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> selectUsersByName(String uname) {
         return userDao.selectUsersByName(uname);
+    }
+
+    @Override
+    public User login(String email, String pwd) {
+        User user = userDao.getUserByEmailAndPwd(new User(email, pwd));
+        return user;
     }
 }

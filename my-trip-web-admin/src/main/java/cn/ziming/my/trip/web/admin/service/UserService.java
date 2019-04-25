@@ -2,11 +2,9 @@ package cn.ziming.my.trip.web.admin.service;
 
 import cn.ziming.my.trip.domain.User;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public interface UserService {
-    User login(String email, String pwd) throws SQLException;
 
     //查询所有用户
     List<User> selectAll();
@@ -25,4 +23,8 @@ public interface UserService {
 
     //模糊查询
     List<User> selectUsersByName(String uname);
+
+    //根据邮箱和密码获取用户对象,可用于登陆
+    User login(String email, String pwd);
+
 }

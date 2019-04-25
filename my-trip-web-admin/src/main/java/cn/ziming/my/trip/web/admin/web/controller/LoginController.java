@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import java.sql.SQLException;
 
@@ -56,5 +57,11 @@ public class LoginController {
             // 明日任务,获取域对象传送user信息
             return "redirect:/main";
         }
+    }
+
+    @RequestMapping(value = "loginout", method = RequestMethod.POST)
+    public String loginOut(HttpSession session){
+        session.invalidate();
+        return "login";
     }
 }
