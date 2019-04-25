@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/my-trip.iml" filepath="$PROJECT_DIR$/my-trip.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-trip-commons/my-trip-commons.iml" filepath="$PROJECT_DIR$/my-trip-commons/my-trip-commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-trip-dependencies/my-trip-dependencies.iml" filepath="$PROJECT_DIR$/my-trip-dependencies/my-trip-dependencies.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-trip-domain/my-trip-domain.iml" filepath="$PROJECT_DIR$/my-trip-domain/my-trip-domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-trip-web-admin/my-trip-web-admin.iml" filepath="$PROJECT_DIR$/my-trip-web-admin/my-trip-web-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-trip-web-api/my-trip-web-api.iml" filepath="$PROJECT_DIR$/my-trip-web-api/my-trip-web-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-trip-web-ui/my-trip-web-ui.iml" filepath="$PROJECT_DIR$/my-trip-web-ui/my-trip-web-ui.iml" />
+    </modules>
+  </component>
+</project>

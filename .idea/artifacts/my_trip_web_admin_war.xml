@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="my-trip-web-admin:war">
+    <output-path>$PROJECT_DIR$/my-trip-web-admin/target</output-path>
+    <root id="archive" name="my-trip-web-admin-1.0.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="my-trip-web-admin:war exploded" />
+    </root>
+  </artifact>
+</component>

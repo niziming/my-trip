@@ -29,6 +29,13 @@
         <servlet-api.version>3.1.0</servlet-api.version>
         <slf4j.version>1.7.25</slf4j.version>
         <spring.version>4.3.17.RELEASE</spring.version>
+        <junit.version>4.11</junit.version>
+        <mysql.version>5.1.46</mysql.version>
+        <alibaba-druid.version>1.1.6</alibaba-druid.version>
+        <mybatis.version>3.2.8</mybatis.version>
+        <mybatis-spring.version>1.3.1</mybatis-spring.version>
+        <spring-jdbc.version>4.3.17.RELEASE</spring-jdbc.version>
+        <spring-test.version>4.3.17.RELEASE</spring-test.version>
     </properties>
 
     <!--jar包的管理-->
@@ -60,6 +67,36 @@
                 <version>${jstl.version}</version>
             </dependency>
             <!-- Servlet End -->
+
+            <!--alibaba-druid-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${alibaba-druid.version}</version>
+            </dependency>
+            <!-- mysql -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
+            <!--mybatis-->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis-spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${spring-jdbc.version}</version>
+            </dependency>
 
             <!-- Log Begin -->
             <dependency>
@@ -96,11 +133,24 @@
                 <version>${commons-lang3.version}</version>
             </dependency>
             <!-- Commons End -->
+
+            <!-- test -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${spring-test.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
     <build>
-        <!--编译打包过程中想干嘛-->
+        <!--编译打包过程中想做什么-->
         <plugins>
             <!-- 编译过程中 Compiler 插件, 设定 JDK 版本 -->
             <plugin>
