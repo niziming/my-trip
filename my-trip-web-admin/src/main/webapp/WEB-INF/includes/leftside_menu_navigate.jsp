@@ -38,7 +38,8 @@
                         </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="active"><a href="/userlist" target="admin"><i class="fa fa-circle-o"></i>用户列表</a></li>
+                    <li><a href="/userlist" target="admin"><i class="fa fa-circle-o"></i>用户列表</a></li>
+                    <li><a href="/userform" target="admin"><i class="fa fa-circle-o"></i>新增用户</a></li>
                 </ul>
             </li>
         </ul>

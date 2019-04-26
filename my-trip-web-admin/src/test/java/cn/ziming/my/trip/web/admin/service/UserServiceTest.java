@@ -32,7 +32,7 @@ public class UserServiceTest {
         user.setEmail("testUserRegDate@turd.com");
         user.setPwd("testpwd");
         user.setRegDate();
-        userService.insert(user);
+        userService.save(user);
     }
 
     @Test
@@ -50,7 +50,7 @@ public class UserServiceTest {
     public void testUpdataUserInfo() {
         User user = userService.getUser(9);
         System.out.println(user);
-        user.setUname("testUpdatInfo");
+        user.setUname("UpdatInfo");
         user.setEmail("test@text.com");
         user.setPwd("test");
         System.out.println(user);
@@ -80,5 +80,12 @@ public class UserServiceTest {
     public void login() {
         User login = userService.login("asd", "sdf");
         System.out.println(login);
+    }
+
+    @Test
+    public void chececkUser() {
+        User user = new User("ziming@admin.com", "admin");
+        boolean flag = userService.chececkUser(user);
+        System.out.println(flag);
     }
 }

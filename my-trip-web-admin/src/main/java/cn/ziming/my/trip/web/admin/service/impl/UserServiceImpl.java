@@ -6,6 +6,7 @@ import cn.ziming.my.trip.web.admin.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -18,10 +19,19 @@ public class UserServiceImpl implements UserService {
 		return userDao.selectAll();
 	}
 
-	@Override
-	public void insert(User user) {
-		userDao.insert(user);
-	}
+    @Override
+    public void save(User user) {
+	    //新增用户
+	    if (user.getUid() == null){
+	        user.setRegDate();
+            userDao.insert(user);
+        }
+        //编辑用户
+        else {
+            userDao.updataUserInfo(user);
+        }
+        userDao.insert(user);
+    }
 
     @Override
     public void delete(int uid) {
@@ -52,5 +62,17 @@ public class UserServiceImpl implements UserService {
     public User login(String email, String pwd) {
         User user = userDao.getUserByEmailAndPwd(new User(email, pwd));
         return user;
+    }
+
+    @Override
+    public boolean chececkUser(User user) {
+        User userByEmailAndPwd = userDao.getUserByEmailAndPwd(user);
+        if (userByEmailAndPwd.getUid() == null){
+            System.out.println("此用户不存在");
+            return true;
+        }else {
+            System.out.println("此用户已存在");
+            return false;
+        }
     }
 }

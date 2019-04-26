@@ -9,8 +9,8 @@ public interface UserService {
     //查询所有用户
     List<User> selectAll();
 
-    //插入用户
-    void insert(User user);
+    //新增用户
+    void save(User user);
 
     //删除用户
     void delete(int uid);
@@ -27,4 +27,5 @@ public interface UserService {
     //根据邮箱和密码获取用户对象,可用于登陆
     User login(String email, String pwd);
 
+    boolean chececkUser(User user);
 }

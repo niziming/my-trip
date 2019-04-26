@@ -6,70 +6,83 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class User implements Serializable {
-	private String uid;
-	private String uname;
-	private String email;
-	private String pwd;
-	private Date regDate;
+    private String uid;
+    private String uname;
+    private String email;
+    private String pwd;
+    private Date regDate;
+    private Date updateTime;
 
-	public User() {
-	}
+    public User() {
+    }
 
-	public User(String email, String pwd) {
-		this.email = email;
-		this.pwd = DigestUtils.md5DigestAsHex(pwd.getBytes());
-		this.regDate = new Date();
-	}
+    public User(String email, String pwd) {
+        this.email = email;
+        this.pwd = DigestUtils.md5DigestAsHex(pwd.getBytes());
+        this.regDate = new Date();
+    }
 
-	public String getUid() {
-		return uid;
-	}
+    public User(String uname, String email, String pwd) {
+        this.uname = uname;
+        this.email = email;
+        this.pwd = DigestUtils.md5DigestAsHex(pwd.getBytes());
+        this.regDate = new Date();
+    }
 
-	public void setUid(String uid) {
-		this.uid = uid;
-	}
+    public String getUid() {
+        return uid;
+    }
 
-	public String getUname() {
-		return uname;
-	}
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
 
-	public void setUname(String uname) {
-		this.uname = uname;
-	}
+    public String getUname() {
+        return uname;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public void setUname(String uname) {
+        this.uname = uname;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public String getPwd() {
-		return pwd;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setPwd(String pwd) {
+    public String getPwd() {
+        return pwd;
+    }
 
-		this.pwd = DigestUtils.md5DigestAsHex(pwd.getBytes());
-	}
+    public void setPwd(String pwd) {
 
-	public Date getRegDate() {
-		return regDate;
-	}
+        this.pwd = DigestUtils.md5DigestAsHex(pwd.getBytes());
+    }
 
-	public void setRegDate() {
-		this.regDate = new Date();
-	}
+    public Date getRegDate() {
+        return regDate;
+    }
 
-	@Override
-	public String toString() {
-		return "User{" +
-				"uid='" + uid + '\'' +
-				", uname='" + uname + '\'' +
-				", email='" + email + '\'' +
-				", pwd='" + pwd + '\'' +
-				", regDate=" + regDate +
-				'}';
-	}
+    public void setRegDate() {
+        this.regDate = new Date();
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "uid='" + uid + '\'' +
+                ", uname='" + uname + '\'' +
+                ", email='" + email + '\'' +
+                ", pwd='" + pwd + '\'' +
+                ", regDate=" + regDate +
+                ", updateTime=" + updateTime +
+        '}';
+    }
 }

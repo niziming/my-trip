@@ -9,7 +9,8 @@
         a.uname,
         a.email,
         a.pwd,
-        a.regdate as regDate
+        a.regdate as regDate,
+        a.update_time as updateTime
     </sql>
     
 	<!--查询所有用户-->
@@ -25,13 +26,13 @@
         insert into lg_user(
             email,
             pwd,
-            regdate
+            update_time
         )
         values
         (
             #{email},
             #{pwd},
-            #{regDate}
+            #{updateTime}
         )
     </insert>
     

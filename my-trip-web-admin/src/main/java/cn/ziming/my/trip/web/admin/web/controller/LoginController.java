@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import java.sql.SQLException;
-
 @Controller
 public class LoginController {
 
@@ -39,7 +37,7 @@ public class LoginController {
      */
     @RequestMapping(value = "login", method = RequestMethod.POST)
     // @RequestParam(required = true) 为true时意思为不可缺省
-    public String login(@RequestParam(required = true) String email, String pwd, HttpServletRequest request) throws SQLException {
+    public String login(@RequestParam(required = true) String email, String pwd, HttpServletRequest request) {
 
         User user = userService.login(email, pwd);
         String timestamp = TimeStampUtil.getTimeFormat();
