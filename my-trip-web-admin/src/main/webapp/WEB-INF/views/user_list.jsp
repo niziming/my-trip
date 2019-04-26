@@ -1,12 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%--代表HTML5--%>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Admin | Management</title>
+    <title>用户管理 | UserInfo</title>
     <jsp:include page="../includes/header.jsp"/>
 
 </head>
@@ -22,15 +20,13 @@
 
         <!-- Content Header (Page header) -->
         <%--管理员信息界面--%>
-        <%--<div>--%>
-        <jsp:include page="user/admin.jsp"/>
-        <%--</div>--%>
 
+        <jsp:include page="user/list.jsp"/>
         <!-- /.content-wrapper -->
     </div>
     <!-- /.content-wrapper -->
     <%--版权--%>
-    <jsp:include page="../includes/copyright.jsp" />
+    <jsp:include page="../includes/copyright.jsp"/>
 </div>
 <%--css--%>
 <jsp:include page="../includes/footer.jsp"/>
