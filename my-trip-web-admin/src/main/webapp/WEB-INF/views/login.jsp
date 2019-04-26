@@ -11,30 +11,8 @@
 <html>
 <%--Header Begin--%>
 <head>
-
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>MyShop | 登陆</title>
-    <!-- Tell the browser to be responsive to screen width 响应式 -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
-    <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="/static/assets/bower_components/bootstrap/dist/css/bootstrap.min.css"/>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="/static/assets/bower_components/font-awesome/css/font-awesome.min.css"/>
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="/static/assets/bower_components/Ionicons/css/ionicons.min.css"/>
-    <!-- Theme style -->
-    <link rel="stylesheet" href="/static/assets/css/AdminLTE.min.css"/>
-    <!-- iCheck -->
-    <link rel="stylesheet" href="/static/assets/plugins/iCheck/square/blue.css"/>
-
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <%--谷歌字体--%>
-    <link href='https://fonts.font.im/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
+    <jsp:include page="../includes/header.jsp" />
 </head>
 <%--Header End--%>
 
@@ -90,21 +68,7 @@
 </div>
 <!-- /.UserService-box -->
 
-<!-- jQuery 3 -->
-<script src="/static/assets/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="/static/assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- iCheck -->
-<script src="../../assets/plugins/iCheck/icheck.min.js"></script>
-<script>
-    $(function () {
-        $('input').iCheck({
-            checkboxClass: 'icheckbox_square-blue',
-            radioClass: 'iradio_square-blue',
-            increaseArea: '20%' /* optional */
-        });
-    });
-</script>
+<jsp:include page="../includes/footer.jsp" />
 
 </body>
 </html>
