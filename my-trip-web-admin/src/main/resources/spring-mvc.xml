@@ -16,9 +16,9 @@
     <context:component-scan base-package="cn.ziming.my.trip.web.admin" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
-
+   
     <!-- 默认的注解映射的支持 少了controller注解用不起来-->
-    <mvc:annotation-driven />
+    <mvc:annotation-driven enable-matrix-variables="true"/>
 
     <!-- 定义视图文件解析 视图文件解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -30,7 +30,9 @@
 
     <!-- 静态资源映射 **代表全目录匹配-->
     <mvc:resources mapping="/static/**" location="/static/" cache-period="31536000"/>
-
+    
+    <!--<mvc:default-servlet-handler/>-->
+    
     <!--拦截器配置 执行顺序由下自上-->
     <mvc:interceptors>
         <!--login interceptter-->
@@ -41,6 +43,7 @@
             <mvc:exclude-mapping path="/login" />
             <!--除开静态资源路径-->
             <mvc:exclude-mapping path="/static/**" />
+            
             <bean class="cn.ziming.my.trip.web.admin.web.interceptor.LoginInterceptor" />
         </mvc:interceptor>
 

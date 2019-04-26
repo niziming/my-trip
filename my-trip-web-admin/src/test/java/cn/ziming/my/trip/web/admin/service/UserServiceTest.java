@@ -1,7 +1,6 @@
-package cn.ziming.my.trip.web.admin.service.impl;
+package cn.ziming.my.trip.web.admin.service;
 
 import cn.ziming.my.trip.domain.User;
-import cn.ziming.my.trip.web.admin.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,28 +9,31 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
 
+import static org.junit.Assert.*;
+
+
 @RunWith(SpringJUnit4ClassRunner.class)
+//配置文件
 @ContextConfiguration({"classpath:spring-context.xml", "classpath:spring-context-druid.xml", "classpath:spring-context-mybatis.xml"})
-public class UserServiceImplTest {
-	@Autowired
-	private UserService userService;
+public class UserServiceTest {
+    @Autowired
+    private UserService userService;
+    @Test
+    public void selectAll() {
+        List<User> users = userService.selectAll();
+        for (User user : users){
+            System.out.println(user);
+        }
+    }
 
-	@Test
-	public void testSelectAll() {
-		List<User> users = userService.selectAll();
-		for (User user : users) {
-			System.out.println(user.getRegDate());
-		}
-	}
-
-	@Test
-	public void testInsert() {
-		User user = new User();
-		user.setEmail("testUserRegDate@turd.com");
-		user.setPwd("testpwd");
-		user.setRegDate();
-		userService.insert(user);
-	}
+    @Test
+    public void testInsert() {
+        User user = new User();
+        user.setEmail("testUserRegDate@turd.com");
+        user.setPwd("testpwd");
+        user.setRegDate();
+        userService.insert(user);
+    }
 
     @Test
     public void delete() {
@@ -72,5 +74,11 @@ public class UserServiceImplTest {
         User user = userService.login(email, pwd);
         System.out.println(user.getUid());
 
+    }
+
+    @Test
+    public void login() {
+        User login = userService.login("asd", "sdf");
+        System.out.println(login);
     }
 }

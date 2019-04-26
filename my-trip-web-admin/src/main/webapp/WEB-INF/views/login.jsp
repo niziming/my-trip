@@ -5,11 +5,13 @@
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
+
 <%--代表HTML5--%>
 <!DOCTYPE html>
 <html>
 <%--Header Begin--%>
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>MyShop | 登陆</title>

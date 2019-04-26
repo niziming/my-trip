@@ -18,12 +18,7 @@
     <description>ui</description>
 
     <dependencies>
-        <dependency>
-            <groupId>cn.ziming</groupId>
-            <artifactId>my-trip-commons</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-
+        
     </dependencies>
 
 </project>
