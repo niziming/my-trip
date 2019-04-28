@@ -1,5 +1,6 @@
 package cn.ziming.my.trip.web.admin.web.controller;
 
+import cn.ziming.my.trip.commons.dto.BaseResult.BaseResult;
 import cn.ziming.my.trip.domain.User;
 import cn.ziming.my.trip.web.admin.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -44,15 +43,26 @@ public class UserController {
         return "user_form";
     }
 
+    /**
+     * 保存用户信息
+     * @param user
+     * @param model
+     * @param redirectAttributes
+     * @return
+     */
     @RequestMapping(value = "saveform", method = RequestMethod.POST)
-    public String saveForm(User user, RedirectAttributes redirectAttributes){
-        if (userService.chececkUser(user)){
-            userService.save(user);
+    public String saveForm(User user, Model model, RedirectAttributes redirectAttributes){
+        BaseResult baseResult  = userService.save(user);
+        //保存成功
+        if (baseResult.getStatus() == 200){
+            redirectAttributes.addFlashAttribute("baseResult", baseResult);
+            return "redirect:/user_list";
         }
+        //保存失败
         else {
+            model.addAttribute("baseResult", baseResult);
             return "user_form";
         }
-        return "redirect:/user_list";
     }
 
 }

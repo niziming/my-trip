@@ -82,10 +82,4 @@ public class UserServiceTest {
         System.out.println(login);
     }
 
-    @Test
-    public void chececkUser() {
-        User user = new User("ziming@admin.com", "admin");
-        boolean flag = userService.chececkUser(user);
-        System.out.println(flag);
-    }
 }

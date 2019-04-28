@@ -33,6 +33,14 @@
 
         <br/><br/>
         <div class="col-xs-12">
+            <%--danger alert--%>
+            <c:if test="${baseResult != null}" >
+                <div class="alert alert-${baseResult.status == 200 ? "success" : "danger"} alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-ban"></i>${baseResult.message}</h4>
+                </div>
+            </c:if>
+            <%--danger alert--%>
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">用户列表</h3>
@@ -74,25 +82,15 @@
                                     <fmt:formatDate value="${user.regDate}" pattern="yyyy-MM-dd"/>
                                 </td>
                                 <td>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i>Edit
-                                        </button>
-                                        <button type="button" class="btn btn-primary btn-xs dropdown-toggle"
-                                                data-toggle="dropdown" aria-expanded="true">
-                                            <span class="caret"></span>
-                                            <span class="sr-only">Toggle Dropdown</span>
-                                        </button>
-                                        <ul class="dropdown-menu" style="min-width:100%;">
-                                            <li><a href="#">查看</a></li>
-                                            <li><a href="#">修改</a></li>
-                                            <li><a href="#">删除</a></li>
-                                        </ul>
-                                    </div>
+                                    <button type="button" class="btn btn-success btn-xs"><i class="fa fa-search"></i>查看</button>
+                                    <button type="button" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i>编辑</button>
+                                    <button type="button" class="btn btn-danger  btn-xs"><i class="fa fa-trash"></i>删除</button>
                                 </td>
                             </tr>
                         </c:forEach>
                         </tbody>
                     </table>
+                    <br>
                 </div>
                 <!-- /.box-body -->
             </div>

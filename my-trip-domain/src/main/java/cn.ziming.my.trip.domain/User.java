@@ -58,7 +58,6 @@ public class User implements Serializable {
     }
 
     public void setPwd(String pwd) {
-
         this.pwd = DigestUtils.md5DigestAsHex(pwd.getBytes());
     }
 

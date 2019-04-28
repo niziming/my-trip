@@ -33,8 +33,15 @@
 
         <br/><br/>
         <div class="col-xs-12">
+            <%--danger alert--%>
+            <c:if test="${baseResult != null}" >
+            <div class="alert alert-${baseResult.status == 200 ? "success" : "danger"} alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><i class="icon fa fa-ban"></i>${baseResult.message}</h4>
+            </div>
+            </c:if>
+            <%--danger alert--%>
             <div class="box">
-
                 <%--用户表单--%>
                 <div class="box box-info">
                     <div class="box-header with-border">
@@ -42,13 +49,16 @@
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" action="/saveform" method="post">
                         <div class="box-body">
+
+
                             <%--uname--%>
                             <div class="form-group">
                                 <label for="inputUname" class="col-sm-2 control-label">Uname</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputUname" placeholder="请输入用户名">
+                                    <input type="text" name="uname" class="form-control" id="inputUname"
+                                           placeholder="请输入用户名">
                                 </div>
                             </div>
 
@@ -57,7 +67,7 @@
                                 <label for="inputEmail" class="col-sm-2 control-label">Email</label>
 
                                 <div class="col-sm-10">
-                                    <input type="email" class="form-control" id="inputEmail" placeholder="请输入邮箱">
+                                    <input type="email" name="email" class="form-control" id="inputEmail" placeholder="请输入邮箱">
                                 </div>
                             </div>
 
@@ -66,7 +76,7 @@
                                 <label for="inputPwd" class="col-sm-2 control-label">Password</label>
 
                                 <div class="col-sm-10">
-                                    <input type="password" class="form-control" id="inputPwd" placeholder="请输入密码">
+                                    <input type="password" name="pwd" class="form-control" id="inputPwd" placeholder="请输入密码">
                                 </div>
                             </div>
 
@@ -74,7 +84,7 @@
                         <!-- /.box-body -->
                         <div class="box-footer">
                             <button type="button" class="btn btn-default" onclick="history.go(-1);">返回</button>
-                            <a href="/userform" type="submit" class="btn btn-info pull-right">提交</a>
+                            <button type="submit" class="btn btn-info pull-right">提交</button>
                         </div>
                         <!-- /.box-footer -->
                     </form>

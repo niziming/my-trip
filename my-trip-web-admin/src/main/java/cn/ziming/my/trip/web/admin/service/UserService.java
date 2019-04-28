@@ -1,5 +1,6 @@
 package cn.ziming.my.trip.web.admin.service;
 
+import cn.ziming.my.trip.commons.dto.BaseResult.BaseResult;
 import cn.ziming.my.trip.domain.User;
 
 import java.util.List;
@@ -10,7 +11,7 @@ public interface UserService {
     List<User> selectAll();
 
     //新增用户
-    void save(User user);
+    BaseResult save(User user);
 
     //删除用户
     void delete(int uid);
@@ -26,6 +27,4 @@ public interface UserService {
 
     //根据邮箱和密码获取用户对象,可用于登陆
     User login(String email, String pwd);
-
-    boolean chececkUser(User user);
 }
