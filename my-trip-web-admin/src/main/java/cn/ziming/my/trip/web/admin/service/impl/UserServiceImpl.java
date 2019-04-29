@@ -13,12 +13,12 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-	@Autowired
-	private UserDao userDao;
+    @Autowired
+    private UserDao userDao;
 
-	public List<User> selectAll() {
-		return userDao.selectAll();
-	}
+    public List<User> selectAll() {
+        return userDao.selectAll();
+    }
 
     @Override
     public BaseResult save(User user) {
@@ -28,7 +28,6 @@ public class UserServiceImpl implements UserService {
 
             //新增用户
             if (user.getUid() == null){
-                user.setRegDate();
                 userDao.insert(user);
                 baseResult.setMessage("新增用户成功");
             }
@@ -43,14 +42,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void delete(int uid) {
+    public void delete(Long uid) {
         userDao.delete(uid);
     }
 
 
     @Override
-    public User getUser(int uid) {
-        return userDao.getUser(uid);
+    public User getUserByUid(Long uid) {
+        return userDao.getUserByUid(uid);
     }
 
     @Override
@@ -73,6 +72,15 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 
+    @Override
+    public List<User> search(String keywords) {
+        User user = new User();
+        user.setUid(keywords);
+        user.setUname(keywords);
+        user.setEmail(keywords);
+        return userDao.search(user);
+    }
+
     /**
      * 用户有效信息验证
      *
@@ -87,7 +95,7 @@ public class UserServiceImpl implements UserService {
         }
 
         else if (StringUtils.isBlank(user.getEmail())){
-            baseResult = BaseResult.fail("邮箱不能为空,请重新输入!");
+            baseResult = BaseResult.fail("邮箱格式不正确,请重新输入!");
         }
 
         else if (StringUtils.isBlank(user.getPwd())){
@@ -95,4 +103,5 @@ public class UserServiceImpl implements UserService {
         }
         return baseResult;
     }
+
 }

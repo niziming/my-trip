@@ -29,26 +29,27 @@ public class UserServiceTest {
     @Test
     public void testInsert() {
         User user = new User();
+        user.setUname("test");
         user.setEmail("testUserRegDate@turd.com");
         user.setPwd("testpwd");
-        user.setRegDate();
+        //user.setRegDate();
         userService.save(user);
     }
 
     @Test
     public void delete() {
-        userService.delete(5);
+        userService.delete(5L);
     }
 
     @Test
     public void testGetUser() {
-        User user = userService.getUser(9);
+        User user = userService.getUserByUid(9L);
         System.out.println(user);
     }
 
     @Test
     public void testUpdataUserInfo() {
-        User user = userService.getUser(9);
+        User user = userService.getUserByUid(9L);
         System.out.println(user);
         user.setUname("UpdatInfo");
         user.setEmail("test@text.com");
@@ -80,6 +81,12 @@ public class UserServiceTest {
     public void login() {
         User login = userService.login("asd", "sdf");
         System.out.println(login);
+    }
+
+    @Test
+    public void testSearch() {
+        List<User> a = userService.search("Jer");
+        System.out.println(a);
     }
 
 }

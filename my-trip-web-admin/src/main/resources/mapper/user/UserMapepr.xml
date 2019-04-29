@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="cn.ziming.my.trip.web.admin.dao.UserDao">
-    
-    <!--片段-->
+	
+	<!--片段-->
 	<sql id="UserColumns">
         a.uid,
         a.uname,
@@ -12,45 +12,47 @@
         a.regdate as regDate,
         a.update_time as updateTime
     </sql>
-    
+	
 	<!--查询所有用户-->
 	<select id="selectAll" resultType="User">
-        SELECT
-            <include refid="UserColumns" />
-        FROM
-            lg_user AS a
-    </select>
+		SELECT
+		<include refid="UserColumns"/>
+		FROM
+		lg_user AS a
+	</select>
 	
 	<!--增加用户-->
 	<insert id="insert">
         insert into lg_user(
+            uname,
             email,
             pwd,
-            update_time
+            regdate
         )
         values
         (
+            #{uname},
             #{email},
             #{pwd},
-            #{updateTime}
+            #{regDate}
         )
     </insert>
-    
-    <!--删除某个用户,根据uid-->
-    <delete id="delete">
+	
+	<!--删除某个用户,根据uid-->
+	<delete id="delete">
         delete from lg_user where uid = #{uid}
     </delete>
-    
-    <!--查询某个用户,根据uid-->
-    <select id="getUser" resultType="User">
-        SELECT
-            <include refid="UserColumns" />
-        FROM
-            lg_user AS a
-        WHERE
-            a.uid = #{uid}
-    </select>
-    
+	
+	<!--查询某个用户,根据uid-->
+	<select id="getUserByUid" resultType="User">
+		SELECT
+		<include refid="UserColumns"/>
+		FROM
+		lg_user AS a
+		WHERE
+		a.uid = #{uid}
+	</select>
+	
 	<!--更新用户信息,根据用户名修改用户信息-->
 	<update id="updataUserInfo">
         update
@@ -62,39 +64,52 @@
         where
             uid = #{uid}
     </update>
-    
-    <!--根据用户名模糊匹配-->
-    <select id="selectUsersByName" resultType="User">
-        SELECT
-            <include refid="UserColumns" />
-        FROM
-            lg_user AS a
-        WHERE
-            a.uname
-        LIKE
-            CONCAT ('%', #{uname}, '%')
-    </select>
-    
-    <!--根据邮箱和密码获取用户对象-->
-    <select id="getUserByEmailAndPwd" resultType="User">
-        SELECT
-            <include refid="UserColumns" />
-        from
-            lg_user as a
-        WHERE
-            a.email = #{email}
-        and
-            a.pwd = #{pwd}
-    </select>
-    
-    <!--&lt;!&ndash;根据邮箱和密码获取用户对象&ndash;&gt;-->
-    <!--<select id="getUserByEmailAndPwd" resultType="User">-->
-        <!--SELECT-->
-        <!--<include refid="UserColumns" />-->
-        <!--FROM-->
-        <!--lg_user AS a-->
-        <!--WHERE-->
-        <!--a.email = #{email}-->
-    <!--</select>-->
-    <!---->
+	
+	<!--根据用户名模糊匹配-->
+	<select id="selectUsersByName" resultType="User">
+		SELECT
+		<include refid="UserColumns"/>
+		FROM
+		lg_user AS a
+		WHERE
+		a.uname
+		LIKE
+		CONCAT ('%', #{uname}, '%')
+	</select>
+	
+	<!--根据邮箱和密码获取用户对象-->
+	<select id="getUserByEmailAndPwd" resultType="User">
+		SELECT
+		<include refid="UserColumns"/>
+		from
+		lg_user as a
+		WHERE
+		a.email = #{email}
+		and
+		a.pwd = #{pwd}
+	</select>
+	
+	<!--choose-->
+	<select id="search" resultType="User">
+		SELECT
+		<include refid="UserColumns"/>
+		FROM
+		lg_user AS a
+		<where>
+			
+			<if test="uid != null and uid != ''">
+				or a.uid = #{uid}
+			</if>
+			
+			<if test="uname != null and uname != ''">
+				or a.uname LIKE concat('%', #{uname}, '%')
+			</if>
+			
+			<if test="email != null and email != ''">
+				or a.email  LIKE concat('%', #{email}, '%')
+			</if>
+			
+		</where>
+	</select>
+
 </mapper>

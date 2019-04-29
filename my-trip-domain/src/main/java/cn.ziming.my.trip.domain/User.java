@@ -14,6 +14,7 @@ public class User implements Serializable {
     private Date updateTime;
 
     public User() {
+        this.regDate = new Date();
     }
 
     public User(String email, String pwd) {
@@ -63,10 +64,6 @@ public class User implements Serializable {
 
     public Date getRegDate() {
         return regDate;
-    }
-
-    public void setRegDate() {
-        this.regDate = new Date();
     }
 
     public Date getUpdateTime() {

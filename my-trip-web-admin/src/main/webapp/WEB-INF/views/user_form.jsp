@@ -35,10 +35,10 @@
         <div class="col-xs-12">
             <%--danger alert--%>
             <c:if test="${baseResult != null}" >
-            <div class="alert alert-${baseResult.status == 200 ? "success" : "danger"} alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                <h4><i class="icon fa fa-ban"></i>${baseResult.message}</h4>
-            </div>
+                <div class="alert alert-${baseResult.status == 200 ? "success" : "danger"} alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-ban"></i>${baseResult.message}</h4>
+                </div>
             </c:if>
             <%--danger alert--%>
             <div class="box">
@@ -51,7 +51,6 @@
                     <!-- form start -->
                     <form class="form-horizontal" action="/saveform" method="post">
                         <div class="box-body">
-
 
                             <%--uname--%>
                             <div class="form-group">

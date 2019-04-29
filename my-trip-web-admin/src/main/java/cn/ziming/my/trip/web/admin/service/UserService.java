@@ -14,10 +14,10 @@ public interface UserService {
     BaseResult save(User user);
 
     //删除用户
-    void delete(int uid);
+    void delete(Long uid);
 
     //查询单个用户,根据uid
-    User getUser(int uid);
+    User getUserByUid(Long uid);
 
     //更新用户信息,根据user.uid
     void updataUserInfo(User user);
@@ -27,4 +27,11 @@ public interface UserService {
 
     //根据邮箱和密码获取用户对象,可用于登陆
     User login(String email, String pwd);
+
+    /**
+     * 搜索功能
+     * @param keywords
+     * @return
+     */
+    List<User> search(String keywords);
 }

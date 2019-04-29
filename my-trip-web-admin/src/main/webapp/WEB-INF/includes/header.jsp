@@ -22,6 +22,8 @@
 <link rel="stylesheet" href="static/assets/css/AdminLTE.min.css">
 <!-- iCheck -->
 <link rel="stylesheet" href="/static/assets/plugins/iCheck/square/blue.css"/>
+<link rel="stylesheet" href="/static/assets/plugins/iCheck/all.css"/>
+
 <!-- AdminLTE Skins. Choose a skin from the css/skins
 folder instead of downloading all of them to reduce the load. -->
 <link rel="stylesheet" href="static/assets/css/skins/_all-skins.min.css">

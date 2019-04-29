@@ -34,7 +34,7 @@
         <br/><br/>
         <div class="col-xs-12">
             <%--danger alert--%>
-            <c:if test="${baseResult != null}" >
+            <c:if test="${baseResult != null}">
                 <div class="alert alert-${baseResult.status == 200 ? "success" : "danger"} alert-dismissible">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                     <h4><i class="icon fa fa-ban"></i>${baseResult.message}</h4>
@@ -51,14 +51,15 @@
                         <a href="#" type="button" class="btn-primary btn-sm"><i class="fa fa-upload"></i>导出</a>
                     </div>
                     <div class="box-tools">
-                        <div class="input-group input-group-sm" style="width: 150px;">
-                            <input type="text" name="table_search" class="form-control pull-right" placeholder="搜索...">
+                        <form action="/search" method="post">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                <input type="text" name="keywords" class="form-control pull-right" placeholder="搜索...">
 
-                            <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
 
@@ -82,9 +83,12 @@
                                     <fmt:formatDate value="${user.regDate}" pattern="yyyy-MM-dd"/>
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-success btn-xs"><i class="fa fa-search"></i>查看</button>
-                                    <button type="button" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i>编辑</button>
-                                    <button type="button" class="btn btn-danger  btn-xs"><i class="fa fa-trash"></i>删除</button>
+                                    <button type="button" class="btn btn-success btn-xs"><i class="fa fa-search"></i>查看
+                                    </button>
+                                    <button type="button" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i>编辑
+                                    </button>
+                                    <button type="button" class="btn btn-danger  btn-xs"><i class="fa fa-trash"></i>删除
+                                    </button>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -100,6 +104,7 @@
     <!-- /.content-wrapper -->
     <%--版权--%>
     <jsp:include page="../includes/copyright.jsp"/>
+
 </div>
 <%--css--%>
 <jsp:include page="../includes/footer.jsp"/>
